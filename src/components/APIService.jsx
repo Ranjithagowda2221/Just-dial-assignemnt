@@ -26,6 +26,11 @@ class APIService {
       return axios.get(url);
   }
 
+  removeCartItem = (id) => {
+    const jsonBody = { product_id:id,auth_key: this.auth_key,quantity:0};
+    return axios.delete(jsonBody);
+  }
+
 }
 
 var apiService = new APIService();

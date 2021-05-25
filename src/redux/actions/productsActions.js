@@ -13,6 +13,5 @@ export const getAllProducts = () => dispatch => {
 }
 
 export const addProductToCart = () => dispatch => {
-    debugger;
     dispatch({ type:ADD_TO_CART})
 }

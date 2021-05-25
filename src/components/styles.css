@@ -30,6 +30,7 @@
     max-height: 130px;
     object-fit: contain;
   }
+  .cart-items {margin-left: 20px;}
   .cart-items img {
     width: 100%;
   }
@@ -49,9 +50,10 @@
 
   .cart-items table {
     border-spacing: 0px;
+    background-color:white;
   }
   .cart-items table thead {
-    background-color: silver;
+    background-color: #e2dfdf;
   }
   .cart-items table thead tr {
     height:60px;
@@ -62,6 +64,38 @@
   .cart-items table td {
     border-bottom: 1px solid silver;
     padding:15px;
-
   }
- 
+
+  .btn-secondary {
+    margin-top: 2rem;
+    padding: 13px;
+    border: 1px solid brown;
+    color: brown;
+    width: 200px;
+  }
+  .checkout {
+    background:white;
+    padding: 20px;
+    margin:0px 20px;
+    height: 300px;
+  }
+  .btn-primary {
+    width: 170px;
+    background-color: brown;
+    color: white;
+    padding:12px;
+    border: unset;
+  }
+  .space-between{
+    justify-content:space-between;
+  }
+  .checkout-btn {
+    margin-top: 5rem;
+  }
+   .shopping-btn {
+     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;}
+  .font-small{
+    font-size: 12px;
+  }
