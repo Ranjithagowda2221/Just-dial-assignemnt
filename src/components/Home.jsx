@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react'
-import apiService from './APIService'
+import React, {useEffect} from 'react'
 import BlockUi from 'react-block-ui';
 import Product from './Product';
 import {getAllProducts} from "../redux/actions/productsActions";
@@ -12,7 +11,7 @@ function Home({products,getAllProducts}) {
             getAllProducts();
     });
     return (
-        <BlockUi blocking={products.length == 0}>
+        <BlockUi blocking={products.length === 0}>
         <div className="products">
            {products.map(product=><Product key={product.id} product={product} />)}
         </div>

@@ -22,7 +22,7 @@ function Product({product,addProductToCart}) {
 
     return (
         <div className="product">
-            <img src={product.imageUrl} alt=" product-image" />
+            <img src={product.imageUrl} alt=" product-item" />
             <p>{product.name}</p>
             {/* <p>{product.productDescription}</p> */}
             <p> {product.unit} </p>
