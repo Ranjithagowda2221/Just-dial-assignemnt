@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { FavoriteBorder, SpaTwoTone } from "@material-ui/icons";
+import { FavoriteBorder} from "@material-ui/icons";
 import { Clear } from "@material-ui/icons";
 import apiService from "./APIService"
 import { Link } from "react-router-dom";
