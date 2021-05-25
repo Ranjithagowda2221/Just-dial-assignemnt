@@ -37,7 +37,7 @@ function Cart() {
                   <td width="40%">
                     <div className="d-flex align-center justify-center mt-1">
                       <div style={{width:"25%"}} className="mr-1">
-                        <img src={item.imageUrl} />
+                        <img src={item.imageUrl} alt="image" />
                       </div>
                       <ul>
                         <li>{item.name}</li>
