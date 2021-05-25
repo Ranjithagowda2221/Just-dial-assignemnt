@@ -58,8 +58,10 @@
   }
   .cart-items table thead th {
     color:#6d6868;
-    border-bottom: 1px solid #eee;
   }
-  .cart-items table tbody td {
-    border-bottom: 1px solid #eee;
+  .cart-items table td {
+    border-bottom: 1px solid silver;
+    padding:15px;
+
   }
+ 

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://omega.jdomni.com/omni-automation-tools/training/";
+axios.defaults.baseURL = "https://omega.jdomni.com/omni-automation-tools/training/";
 
 class APIService {
 
