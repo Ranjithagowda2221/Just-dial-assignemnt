@@ -7,14 +7,14 @@ import { connect } from "react-redux";
 
 function Cart({basketItems}) {
 
-    const [cartItems, setCartItems] = useState([]);
+    // const [cartItems, setCartItems] = useState([]);
 
     const getAllCartItems =()=>{
      return apiService.getAllCartItems().then(response =>{
-      setCartItems(response.data)
+      // setCartItems(response.data)
     })
   }
-const basketTotal = basketItems?.length !=0&& basketItems.reduce((amount,item)=>item.price + amount,0)
+const basketTotal = basketItems?.length !== 0 && basketItems.reduce((amount,item)=>item.price + amount,0)
     
     useEffect(() =>{
       getAllCartItems();
@@ -28,7 +28,7 @@ const basketTotal = basketItems?.length !=0&& basketItems.reduce((amount,item)=>
 
   return (
     
-    basketItems?.length == 0 ?<h3>No products added to the cart.</h3> :
+    basketItems?.length === 0 ?<h3>No products added to the cart.</h3> :
     <div className="cart-items mt-1 ml-1">
       <div className="d-flex align-center">
         <h3>{`Shopping Cart(${basketItems?.length} items) `}</h3>

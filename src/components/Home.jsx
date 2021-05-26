@@ -9,7 +9,7 @@ function Home({products,getAllProducts}) {
 
     useEffect(() =>{
             getAllProducts();
-    },[]);
+    },[getAllProducts()]);
     return (
         <BlockUi blocking={products.length === 0}>
         <div className="products">
