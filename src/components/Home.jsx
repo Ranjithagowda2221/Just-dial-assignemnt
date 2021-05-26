@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 function Home({products,getAllProducts}) {
 
     useEffect(() =>{
-            getAllProducts();
+        getAllProducts();
     },[getAllProducts()]);
     return (
         <BlockUi blocking={products.length === 0}>

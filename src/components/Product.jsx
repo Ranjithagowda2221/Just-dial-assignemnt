@@ -25,13 +25,13 @@ function Product(props) {
 
     return (
         <div className="product">
-            <img src={product.imageUrl} alt=" product-item" />
+            <img src={product.imageUrl} alt="product-item" />
             <p>{product.name}</p>
             {/* <p>{product.productDescription}</p> */}
             <p> {product.unit} </p>
             <p> {product.price}</p>
             {productId===productid && props.cartItems.length > 0  ?
-             <span className="toggle"><img src={ToggleProduct}/></span> :
+             <span className="toggle"><img src={ToggleProduct} alt="toggle-product" /></span> :
             <span className="addTo-cart" onClick={()=>{ setProductId(product.id);addToCart()}}>
             <span className="add-icon">+</span>ADD
             </span>
