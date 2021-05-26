@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import { FavoriteBorder} from "@material-ui/icons";
 import { Clear } from "@material-ui/icons";
 import apiService from "./APIService"
