@@ -30,7 +30,6 @@ class APIService {
     const jsonBody = { product_id:id,auth_key: this.auth_key,quantity:0};
     return axios.delete(jsonBody);
   }
-
 }
 
 var apiService = new APIService();

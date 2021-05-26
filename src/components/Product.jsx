@@ -1,13 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { connect } from 'react-redux';
 import {addProductToCart} from '../redux/actions/productsActions';
 import PropTypes from 'prop-types';
 import { ADD_TO_CART } from '../redux/actions/types';
 import store from "../redux/store"
+import ToggleProduct from "../assets/images/ToggleProduct.png";
+function Product(props) {
 
-function Product({product,addProductToCart}) {
+    const {product,productId} = props;
+    const {id,imageUrl,name,unit,price} = props.product;
 
-    const {id,imageUrl,name,unit,price} = product;
+    const [productid, setProductId] = useState();
 
     const addToCart = () =>{
         const productData = {
@@ -27,13 +30,24 @@ function Product({product,addProductToCart}) {
             {/* <p>{product.productDescription}</p> */}
             <p> {product.unit} </p>
             <p> {product.price}</p>
-            <span className="addTo-cart" onClick={addToCart}><span className="add-icon">+</span>ADD</span>
+            {productId===productid && props.cartItems.length > 0  ?
+             <span className="toggle"><img src={ToggleProduct}/></span> :
+            <span className="addTo-cart" onClick={()=>{ setProductId(product.id);addToCart()}}>
+            <span className="add-icon">+</span>ADD
+            </span>
+}
         </div>
     )
 }
 
 Product.propTypes = {
-    addProductToCart:PropTypes.func.isRequired
+    addProductToCart:PropTypes.func.isRequired,
+    cartItems: PropTypes.array.isRequired
 }
 
-export default  connect(null,{addProductToCart}) (Product)
+const mapStateToProps = (state) => ({
+    cartItems: state.products.product
+})
+;
+
+export default  connect(mapStateToProps,{addProductToCart}) (Product)

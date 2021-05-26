@@ -3,16 +3,18 @@ import { FavoriteBorder} from "@material-ui/icons";
 import { Clear } from "@material-ui/icons";
 import apiService from "./APIService"
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Cart() {
+function Cart({basketItems}) {
 
     const [cartItems, setCartItems] = useState([]);
 
     const getAllCartItems =()=>{
      return apiService.getAllCartItems().then(response =>{
       setCartItems(response.data)
-  })
-}
+    })
+  }
+const basketTotal = basketItems?.length !=0&& basketItems.reduce((amount,item)=>item.price + amount,0)
     
     useEffect(() =>{
       getAllCartItems();
@@ -20,15 +22,16 @@ function Cart() {
 
     const onRemoveItem = (item) => {
       apiService.removeCartItem(item.id).then(response =>{
-        debugger
         getAllCartItems();
       });
     }
 
   return (
+    
+    basketItems?.length == 0 ?<h3>No products added to the cart.</h3> :
     <div className="cart-items mt-1 ml-1">
       <div className="d-flex align-center">
-        <h3>{`Shopping Cart(${cartItems.length} items) `}</h3>
+        <h3>{`Shopping Cart(${basketItems?.length} items) `}</h3>
         <p>Clear Cart</p>
       </div>
       <div className="d-flex">
@@ -43,7 +46,7 @@ function Cart() {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item) => (
+              {basketItems.map((item) => (
                 <tr>
                   <td width="40%">
                     <div className="d-flex align-center justify-center mt-1">
@@ -83,22 +86,26 @@ function Cart() {
         <div className="checkout" style={{ flex: "0.2" }}>
           <div className="d-flex space-between">
             <p  style={{opacity:"0.5"}}>Order Worth</p>
-            <p>184</p>
+            <p>{basketTotal}</p>
             </div>
           <div className="d-flex space-between" style={{borderBottom:"1px solid silver"}}>
-            <p style={{opacity:"0.5"}}>Total saving</p>
-            <p>106</p>
+            <p style={{opacity:"0.5"}}>Total Saving</p>
+            <p>{40/100*basketTotal}</p>
           </div>
           <div className="d-flex space-between">
             <p>Amount Payable</p>
-            <p>184</p>
+            <p>{basketTotal}</p>
           </div>
           <button className="btn-primary checkout-btn">Checkout</button>
         </div>
       </div>
     </div>
+   
   );
 }
 
+const mapStateToProps = (state) => ({
+  basketItems:state.products.product
+});
 
-export default Cart
+export default connect(mapStateToProps,null) (Cart)

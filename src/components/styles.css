@@ -99,3 +99,7 @@
   .font-small{
     font-size: 12px;
   }
+  .toggle img {
+    width:80px;
+    cursor: pointer;
+  }

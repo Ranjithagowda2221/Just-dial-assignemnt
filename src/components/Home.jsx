@@ -9,16 +9,15 @@ function Home({products,getAllProducts}) {
 
     useEffect(() =>{
             getAllProducts();
-    });
+    },[]);
     return (
         <BlockUi blocking={products.length === 0}>
         <div className="products">
-           {products.map(product=><Product key={product.id} product={product} />)}
+           {products.map(product=><Product key={product.id} productId={product.id} product={product} />)}
         </div>
          </BlockUi>
     )
 }
-
  Home.propTypes = {
     getAllProducts:PropTypes.func.isRequired,
     products:PropTypes.array.isRequired
